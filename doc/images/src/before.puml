@@ -1,0 +1,41 @@
+@startuml
+
+[Calendar] as cal
+[UberPopug] as auth
+
+component t {
+[Task Tracker FE] as ttfe
+[Task Tracker] as tasks
+database taskdb
+}
+
+component a1 {
+[Accounting FE] as acfe
+[Accounting] as acc
+database accountdb
+}
+
+component a2 {
+[Analytics FE] as anfe
+[Analytics] as an
+database analyticsdb
+}
+
+cal -> tasks : async start_day
+
+ttfe -> tasks : sync task_management
+tasks -> taskdb : sync
+tasks -> acc : async task
+tasks -> an : async task
+tasks -> auth: sync
+
+acc -> an : async price
+acfe -> acc : sync view_accounting
+acc -> accountdb : sync
+acc -> auth: sync
+
+an -> analyticsdb : sync
+anfe -> an : sync view_analytics
+an -> auth : sync
+
+@enduml
