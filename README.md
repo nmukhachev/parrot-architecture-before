@@ -102,3 +102,27 @@ command analyseSingleTasksCheckOut
 data task price popug
 event Analytics.singleTaskCheckOutAnalysed
 
+## бизнес цепочки
+
+### создание новой таски в трекере
+taskRegistered -> singleTaskAssigned -> singleTaskCheckedIn ->  singleAuditLineAdded
+
+taskRegistered ->  evaluateTask
+
+singleTaskCheckedIn -> singleTaskCheckInAnalysed
+
+### заассайнивание тасков
+tasksAssigned -> tasksCheckedIn -> auditLinesAdded
+
+tasksCheckedIn -> tasksCheckInAnalysed
+
+### закрытие задачи
+taskFinished -> singleTaskCheckedOut -> singleAuditLineAdded
+
+singleTaskCheckedOut -> singleTaskCheckOutAnalysed
+
+### закрытие дня
+newDayStarted -> salaryPaid -> checksSent
+
+salaryPaid -> auditCleared
+
