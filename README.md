@@ -250,3 +250,20 @@ salaryPaid -> auditCleared
 | accounting      | analytics          | singleTaskCheckedOut |
 | calendar        | accounting         | newDayStarted        |
 | acconting       | analytics          | salaryPaid           |
+
+## CUD events
+
+| сервис источник | сервис потребитель | данные            |
+|-----------------|--------------------|-------------------|
+| auth            | task tracker       | popug             |
+| auth            | accounting         | popug             |
+| auth            | analytics          | popug             |
+| auth            | task               | role              |
+| auth            | accounting         | role              |
+| auth            | analytics          | role              |
+| task tracker    | accounting         | task              |
+| task tracker    | analytics          | task              |
+| task tracker    | accounting         | status            |
+| accounting      | analytics          | price             |
+| accounting      | analytics          | account           |
+| accounting      | analytics          | corporate account |
