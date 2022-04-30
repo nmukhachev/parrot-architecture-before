@@ -1,0 +1,9 @@
+digraph {
+  popug -> role;
+  popug -> task -> status;
+  task -> price;
+  account -> date;
+  audit -> task;
+  task -> date;
+  corporate_account;
+}

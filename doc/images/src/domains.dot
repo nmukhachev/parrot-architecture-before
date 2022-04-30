@@ -1,0 +1,72 @@
+digraph {
+  subgraph cluster_0 {
+    cal_date [label="date"];
+    label = "calendar"
+  }
+
+  subgraph cluster_1 {
+    auth_popug [label="popug"];
+    auth_role [label="role"];
+    auth_popug -> auth_role;
+    label = "auth"
+  }
+
+  subgraph cluster_2 {
+    task_role [label="role"];
+    task_popug [label="popug"];
+    task_task [label="task"];
+    task_status [label="status"];
+    task_popug -> task_role;
+    task_popug -> task_task -> task_status;
+    label = "task tracker"
+  }
+
+  subgraph cluster_3 {
+    accounting_popug [label="popug"];
+    accounting_role [label="role"];
+    accounting_date [label="date"];
+    accounting_account [label="account"];
+    accounting_audit [label="audit"];
+    accounting_task [label="task"];
+    accounting_status [label="status"];
+    accounting_price [label="price"];
+    accounting_popug -> accounting_role;
+    accounting_popug -> accounting_account -> accounting_date;
+    accounting_account -> accounting_audit -> accounting_date;
+    accounting_popug -> accounting_task -> accounting_status;
+    accounting_audit -> accounting_task -> accounting_price;
+    accounting_corporate_account [label="corporate account"];
+    label = "accounting"
+  }
+
+  subgraph cluster_4 {
+    analytics_popug [label="popug"];
+    analytics_account [label="account"];
+    analytics_date [label="date"];
+    analytics_role [label="role"];
+    analytics_price [label="price"];
+    analytics_task [label="task"];
+    analytics_corporate_account [label="corporate account"];
+    analytics_popug -> analytics_account -> analytics_date;
+    analytics_popug -> analytics_role;
+    analytics_task -> analytics_price;
+    analytics_task -> analytics_date;
+    analytics_corporate_account -> analytics_date;
+    label = "analytics"
+  }
+  edge [style = dashed];
+  cal_date -> accounting_date;
+  cal_date -> analytics_date;
+  auth_popug -> task_popug;
+  auth_popug -> accounting_popug;
+  auth_popug -> analytics_popug;
+  auth_role -> task_role;
+  auth_role -> accounting_role;
+  auth_role -> analytics_role;
+  task_task -> accounting_task;
+  task_task -> analytics_task;
+  task_status -> accounting_status;
+  accounting_price -> analytics_price;
+  accounting_account -> analytics_account;
+  accounting_corporate_account -> analytics_corporate_account;
+}
