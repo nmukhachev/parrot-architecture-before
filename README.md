@@ -207,3 +207,19 @@ salaryPaid -> auditCleared
 |                +--------------------| task |------------------>| price |  |
 |                                     +------+                   +-------+  |
 +---------------------------------------------------------------------------+
+
+### общие данные между доменами
+
+| данные            | calendar | auth | task tracker | accounting | analytics |
+|-------------------+----------+------+--------------+------------+-----------|
+| date              | v        |      |              | v          | v         |
+| popug             |          | v    | v            | v          | v         |
+| role              |          | v    | v            | v          | v         |
+| task              |          |      | v            | v          | v         |
+| status            |          |      | v            | v          | v         |
+| price             |          |      |              | v          | v         |
+| account           |          |      |              | v          | v         |
+| audit             |          |      |              | v          |           |
+| corporate account |          |      |              | v          | v         |
+
+![связи на картинке](./doc/images/domains.svg)
