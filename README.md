@@ -2,6 +2,7 @@
 
 ## события
 
+...............................
 actor calendar
 command startNewDay
 data date
@@ -101,6 +102,7 @@ actor Accounting.singleTaskCheckedOut event
 command analyseSingleTasksCheckOut
 data task price popug
 event Analytics.singleTaskCheckOutAnalysed
+...............................
 
 ## бизнес цепочки
 
