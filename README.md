@@ -237,3 +237,16 @@ salaryPaid -> auditCleared
 между сервисами все связи должны быть асинхронными
 
 между сервисами и фронтом связи должны быть синхронными
+
+## бизнес события
+
+| сервис источкик | сервис потребитель | событие              |
+|-----------------|--------------------|----------------------|
+| task tracker    | accounting         | taskRegistered       |
+| task tracker    | accounting         | singleTaskAssigned   |
+| task tracker    | accounting         | TasksAssigned        |
+| task tracker    | accounting         | taskFinished         |
+| accounting      | analytics          | singleTaskCheckedIn  |
+| accounting      | analytics          | singleTaskCheckedOut |
+| calendar        | accounting         | newDayStarted        |
+| acconting       | analytics          | salaryPaid           |
