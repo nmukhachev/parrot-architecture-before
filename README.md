@@ -223,3 +223,17 @@ salaryPaid -> auditCleared
 | corporate account |          |      |              | v          | v         |
 
 ![связи на картинке](./doc/images/domains.svg)
+
+## сервисы в системе
+
+- auth
+- calendar
+- task tracker
+- accounting
+- analytics
+
+### связи между сервисами
+
+между сервисами все связи должны быть асинхронными
+
+между сервисами и фронтом связи должны быть синхронными
